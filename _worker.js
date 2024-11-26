@@ -266,6 +266,10 @@ export default {
 					},
 				});
 			}
+
+			if (pathname.includes('/v1/search') && url.search.includes('library/') && !url.search.match(/library\/(&|$)/)) {
+				url.search = url.search.replace('library/', '');
+			}
 			
 			const newUrl = new URL("https://registry.hub.docker.com" + pathname + url.search);
 
